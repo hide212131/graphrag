@@ -1,12 +1,34 @@
 {
-	"version": "0.2.0",
-	"configurations": [
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: graphrag.index",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "graphrag.index",
+            "args": [
+                "--root",
+                "./ragtest"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+			"env": {
+				"POETRY_ACTIVE": "1"
+			},
+			"envFile": "${workspaceFolder}/ragtest/.env"
+        },
+		// launch /Users/hide/Github/graphrag/examples/additional_workflows_with_defaults/run.py 
 		{
-			"name": "Attach to Node Functions",
-			"type": "node",
-			"request": "attach",
-			"port": 9229,
-			"preLaunchTask": "func: host start"
-		}
-	]
+			"name": "Python: graphrag.examples.additional_workflows_with_defaults.run",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "${workspaceFolder}/examples/additional_workflows_with_defaults/run.py",
+			"console": "integratedTerminal",
+			"env": {
+				"POETRY_ACTIVE": "1"
+			},
+			"envFile": "${workspaceFolder}/ragtest/.env",
+			"justMyCode": false
+		}		
+    ]
 }

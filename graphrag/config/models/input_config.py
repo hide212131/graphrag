@@ -7,6 +7,7 @@ from pydantic import BaseModel, Field
 
 import graphrag.config.defaults as defs
 from graphrag.config.enums import InputFileType, InputType
+from graphrag.index.config.workflow import PipelineWorkflowStep
 
 
 class InputConfig(BaseModel):
@@ -58,3 +59,8 @@ class InputConfig(BaseModel):
     document_attribute_columns: list[str] = Field(
         description="The document attribute columns to use.", default=[]
     )
+    post_process: list[PipelineWorkflowStep] | None = Field(
+        description="The post processing steps for the input.", default=None
+    )
+    """The post processing steps for the input."""
+

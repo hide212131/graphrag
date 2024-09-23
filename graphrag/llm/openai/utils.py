@@ -152,7 +152,8 @@ def get_sleep_time_from_error(e: Any) -> float:
     sleep_time = 0.0
     if isinstance(e, RateLimitError) and _please_retry_after in str(e):
         # could be second or seconds
-        sleep_time = int(str(e).split(_please_retry_after)[1].split(" second")[0])
+        sleep_time = int(e.response.headers.get("Retry-After", 1))
+        #sleep_time = int(str(e).split(_please_retry_after)[1].split(" second")[0])
 
     return sleep_time
 

@@ -17,6 +17,7 @@ from graphrag.config import (
     load_config,
     resolve_paths,
 )
+from graphrag.index.workflows.typing import WorkflowDefinitions
 
 from .api import build_index
 from .emit.types import TableEmitterType

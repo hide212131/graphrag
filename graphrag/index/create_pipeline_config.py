@@ -441,6 +441,7 @@ def _get_pipeline_input_config(
                 connection_string=settings.input.connection_string,
                 storage_account_blob_url=settings.input.storage_account_blob_url,
                 container_name=settings.input.container_name,
+                post_process=settings.input.post_process,
             )
         case InputFileType.text:
             return PipelineTextInputConfig(
@@ -451,6 +452,7 @@ def _get_pipeline_input_config(
                 connection_string=settings.input.connection_string,
                 storage_account_blob_url=settings.input.storage_account_blob_url,
                 container_name=settings.input.container_name,
+                post_process=settings.input.post_process,
             )
         case _:
             msg = f"Unknown input type: {file_type}"

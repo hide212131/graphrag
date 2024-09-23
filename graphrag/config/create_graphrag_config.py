@@ -350,6 +350,7 @@ def create_graphrag_config(
                 connection_string=reader.str(Fragment.conn_string),
                 storage_account_blob_url=reader.str(Fragment.storage_account_blob_url),
                 container_name=reader.str(Fragment.container_name),
+                post_process=reader.list("post_process"),
             )
         with reader.envvar_prefix(Section.cache), reader.use(values.get("cache")):
             c_type = reader.str(Fragment.type)
